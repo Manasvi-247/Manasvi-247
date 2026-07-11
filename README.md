@@ -123,7 +123,7 @@ parts.
 &nbsp;·&nbsp;
 <a href="https://www.linkedin.com/in/manasvi-sabbarwal">linkedin</a>
 &nbsp;·&nbsp;
-<a href="mailto:manasvi.sabbarwal@scalerailabs.com">manasvi.sabbarwal@scalerailabs.com</a>
+<a href="mailto:manasvi.sabbarwal@gmail.com">manasvi.sabbarwal@gmail.com</a>
 </samp>
 
 <br><br>
