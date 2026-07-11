@@ -19,6 +19,11 @@
 <br clear="both">
 
 <picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Manasvi-247/Manasvi-247/output/github-snake-dark.svg">
+  <img alt="Contribution snake" src="https://raw.githubusercontent.com/Manasvi-247/Manasvi-247/output/github-snake.svg" width="100%">
+</picture>
+
+<picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/divider-dark.svg">
   <img src="assets/divider-light.svg" alt="" width="100%">
 </picture>
