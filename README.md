@@ -23,7 +23,7 @@
   </picture>
 </a>
 &nbsp;
-<a href="mailto:manasvi.sabbarwal@scalerailabs.com">
+<a href="mailto:manasvi.sabbarwal@gmail.com">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="assets/pill-email-dark.svg">
     <img src="assets/pill-email-light.svg" alt="Email" height="42">
@@ -38,62 +38,6 @@
   <source media="(prefers-color-scheme: dark)" srcset="assets/divider-dark.svg">
   <img src="assets/divider-light.svg" alt="" width="100%">
 </picture>
-
-### <samp>// about</samp>
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats.vercel.app/api/top-langs/?username=Manasvi-247&layout=compact&langs_count=8&hide=html&hide_border=true&bg_color=00000000&title_color=a78bfa&text_color=8b949e&card_width=380">
-  <img align="right" width="380" alt="Most used languages" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Manasvi-247&layout=compact&langs_count=8&hide=html&hide_border=true&bg_color=00000000&title_color=a78bfa&text_color=57606a&card_width=380">
-</picture>
-
-<samp>
-i like building things end to end — agents that drive real browsers,
-retrieval pipelines that actually retrieve, and the occasional HTTP
-server written from raw sockets, because frameworks hide all the fun
-parts.
-</samp>
-
-<br><br>
-
-<samp>
-<b>now</b>&nbsp; — &nbsp;agentic tooling &amp; RAG systems<br><br>
-<b>stack</b>&nbsp; — &nbsp;typescript · python · java / spring boot · react · sql<br><br>
-<b>open to</b>&nbsp; — &nbsp;internships, collabs, interesting problems
-</samp>
-
-<br clear="both">
-
-### <samp>// featured builds</samp>
-
-<div align="center">
-
-<a href="https://github.com/Manasvi-247/Website-Automation-Agent">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats.vercel.app/api/pin/?username=Manasvi-247&repo=Website-Automation-Agent&hide_border=true&bg_color=00000000&title_color=a78bfa&text_color=8b949e&icon_color=f0abfc&description_lines_count=2">
-    <img width="49%" alt="Website-Automation-Agent" src="https://github-readme-stats.vercel.app/api/pin/?username=Manasvi-247&repo=Website-Automation-Agent&hide_border=true&bg_color=00000000&title_color=a78bfa&text_color=57606a&icon_color=f0abfc&description_lines_count=2">
-  </picture>
-</a>
-<a href="https://github.com/Manasvi-247/CLI-clone">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats.vercel.app/api/pin/?username=Manasvi-247&repo=CLI-clone&hide_border=true&bg_color=00000000&title_color=a78bfa&text_color=8b949e&icon_color=f0abfc&description_lines_count=2">
-    <img width="49%" alt="CLI-clone" src="https://github-readme-stats.vercel.app/api/pin/?username=Manasvi-247&repo=CLI-clone&hide_border=true&bg_color=00000000&title_color=a78bfa&text_color=57606a&icon_color=f0abfc&description_lines_count=2">
-  </picture>
-</a>
-
-<a href="https://github.com/Manasvi-247/HTTP_SERVER">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats.vercel.app/api/pin/?username=Manasvi-247&repo=HTTP_SERVER&hide_border=true&bg_color=00000000&title_color=a78bfa&text_color=8b949e&icon_color=f0abfc&description_lines_count=2">
-    <img width="49%" alt="HTTP_SERVER" src="https://github-readme-stats.vercel.app/api/pin/?username=Manasvi-247&repo=HTTP_SERVER&hide_border=true&bg_color=00000000&title_color=a78bfa&text_color=57606a&icon_color=f0abfc&description_lines_count=2">
-  </picture>
-</a>
-<a href="https://github.com/Manasvi-247/RideShare">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats.vercel.app/api/pin/?username=Manasvi-247&repo=RideShare&hide_border=true&bg_color=00000000&title_color=a78bfa&text_color=8b949e&icon_color=f0abfc&description_lines_count=2">
-    <img width="49%" alt="RideShare" src="https://github-readme-stats.vercel.app/api/pin/?username=Manasvi-247&repo=RideShare&hide_border=true&bg_color=00000000&title_color=a78bfa&text_color=57606a&icon_color=f0abfc&description_lines_count=2">
-  </picture>
-</a>
-
-</div>
 
 ### <samp>// activity</samp>
 
