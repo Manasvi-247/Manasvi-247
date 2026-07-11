@@ -42,19 +42,29 @@ def kt(t):
     return f"{max(0.0, min(t, C)) / C:.5f}"
 
 
-def gradient(gid, animate=True, dur="6s", colors=None):
+def gradient(gid, animate=True, dur="6s", colors=None, user=None):
+    """user=(x1, x2) switches to userSpaceOnUse coords — REQUIRED for strokes on
+    horizontal <line> elements: their bounding box has zero height, and per the
+    SVG spec objectBoundingBox gradients on zero-area boxes are not rendered."""
     colors = colors or GRAD
     stops = "".join(
         f'<stop offset="{int(i * 100 / (len(colors) - 1))}%" stop-color="{c}"/>'
         for i, c in enumerate(colors)
     )
+    if user:
+        x1, x2 = user
+        attrs = f'x1="{x1}" y1="0" x2="{x2}" y2="0" gradientUnits="userSpaceOnUse"'
+        shift = 2 * (x2 - x1)  # spreadMethod=reflect repeats with period 2*span
+    else:
+        attrs = 'x1="0" y1="0" x2="1" y2="0"'
+        shift = 2
     anim = (
         f'<animateTransform attributeName="gradientTransform" type="translate" '
-        f'values="0 0;2 0" dur="{dur}" repeatCount="indefinite"/>'
+        f'values="0 0;{shift} 0" dur="{dur}" repeatCount="indefinite"/>'
         if animate else ""
     )
     return (
-        f'<linearGradient id="{gid}" x1="0" y1="0" x2="1" y2="0" spreadMethod="reflect">'
+        f'<linearGradient id="{gid}" {attrs} spreadMethod="reflect">'
         f"{stops}{anim}</linearGradient>"
     )
 
@@ -111,7 +121,7 @@ def phrase_group(i, text, muted):
 
     return (
         f'<g opacity="0">{g_anim}'
-        f'<text x="450" y="158" text-anchor="middle" xml:space="preserve" '
+        f'<text x="4" y="102" text-anchor="start" xml:space="preserve" '
         f'font-family="{MONO}" font-size="16.5" fill="{muted}">'
         f"{marker}{''.join(chars)}{caret}</text></g>"
     )
@@ -119,10 +129,9 @@ def phrase_group(i, text, muted):
 
 def dots(theme):
     pts = [
-        (60, 36, 1.6, 3.9, 0.0), (140, 132, 1.2, 5.1, 1.2), (210, 58, 1.9, 4.4, 2.1),
-        (320, 168, 1.3, 5.6, 0.7), (560, 172, 1.5, 4.8, 1.7), (690, 52, 1.9, 5.3, 0.4),
-        (770, 140, 1.3, 4.1, 2.6), (840, 80, 1.7, 5.0, 1.1), (450, 20, 1.2, 6.0, 3.0),
-        (40, 180, 1.4, 4.6, 0.9), (860, 180, 1.4, 5.4, 2.2), (110, 84, 1.1, 6.2, 1.5),
+        (620, 34, 1.6, 3.9, 0.0), (700, 22, 1.2, 5.1, 1.2), (760, 62, 1.9, 4.4, 2.1),
+        (820, 30, 1.3, 5.6, 0.7), (866, 78, 1.5, 4.8, 1.7), (688, 96, 1.4, 5.3, 0.4),
+        (804, 108, 1.3, 4.1, 2.6), (890, 14, 1.2, 5.4, 2.2),
     ]
     op = theme["dot_op"]
     out = []
@@ -138,26 +147,17 @@ def dots(theme):
 
 def hero(theme_name):
     t = THEMES[theme_name]
-    label_tracking = 'letter-spacing="4"'
     phrases = "".join(phrase_group(i, p, t["muted"]) for i, p in enumerate(PHRASES))
     svg = f"""<?xml version="1.0" encoding="UTF-8"?>
-<svg width="900" height="200" viewBox="0 0 900 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg width="900" height="130" viewBox="0 0 900 130" fill="none" xmlns="http://www.w3.org/2000/svg">
 <defs>
 {gradient('g1', colors=NAME_GRAD)}
-{gradient('g2', dur='8s', colors=NAME_GRAD)}
-<radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
-<stop offset="0%" stop-color="{NAME_GRAD[1]}" stop-opacity="{t['glow_op']}"/>
-<stop offset="100%" stop-color="{NAME_GRAD[1]}" stop-opacity="0"/>
-</radialGradient>
+{gradient('g2', dur='8s', colors=NAME_GRAD, user=(6, 236))}
 </defs>
-<ellipse cx="450" cy="80" rx="300" ry="62" fill="url(#glow)">
-<animate attributeName="opacity" values="0.7;1;0.7" dur="7s" repeatCount="indefinite"/>
-</ellipse>
 {dots(t)}
-<text x="450" y="38" text-anchor="middle" font-family="{MONO}" font-size="12" {label_tracking} fill="{t['faint']}" opacity="0">SOFTWARE&#160;&#160;&#183;&#160;&#160;AGENTS&#160;&#160;&#183;&#160;&#160;SYSTEMS<animate attributeName="opacity" values="0;0.9" dur="0.9s" begin="0.1s" fill="freeze"/></text>
-<text x="450" y="86" text-anchor="middle" font-family="{SANS}" font-size="30" font-weight="700" letter-spacing="6" fill="url(#g1)" opacity="0">MANASVI SABBARWAL<animate attributeName="opacity" values="0;1" dur="0.8s" begin="0.15s" fill="freeze"/></text>
-<line x1="340" y1="108" x2="560" y2="108" stroke="url(#g2)" stroke-width="2" stroke-linecap="round" stroke-dasharray="220" stroke-dashoffset="220">
-<animate attributeName="stroke-dashoffset" values="220;0" dur="1.1s" begin="0.5s" fill="freeze"/>
+<text x="4" y="42" text-anchor="start" font-family="{SANS}" font-size="30" font-weight="700" letter-spacing="6" fill="url(#g1)" opacity="0">MANASVI SABBARWAL<animate attributeName="opacity" values="0;1" dur="0.8s" begin="0.15s" fill="freeze"/></text>
+<line x1="6" y1="62" x2="236" y2="62" stroke="url(#g2)" stroke-width="2" stroke-linecap="round" stroke-dasharray="230" stroke-dashoffset="230">
+<animate attributeName="stroke-dashoffset" values="230;0" dur="1.1s" begin="0.5s" fill="freeze"/>
 </line>
 {phrases}
 </svg>"""
@@ -168,26 +168,11 @@ def divider(theme_name):
     base = "rgba(139,148,158,0.28)" if theme_name == "dark" else "rgba(110,119,129,0.28)"
     return f"""<?xml version="1.0" encoding="UTF-8"?>
 <svg width="830" height="16" viewBox="0 0 830 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-<defs>{gradient('dg', animate=False)}</defs>
+<defs>{gradient('dg', animate=False, user=(0, 830))}</defs>
 <line x1="2" y1="8" x2="828" y2="8" stroke="{base}" stroke-width="1"/>
 <line x1="2" y1="8" x2="828" y2="8" stroke="url(#dg)" stroke-width="1.6" stroke-linecap="round" stroke-dasharray="110 720">
 <animate attributeName="stroke-dashoffset" values="830;0" dur="5s" repeatCount="indefinite"/>
 </line>
-</svg>"""
-
-
-def pill(label, theme_name):
-    t = THEMES[theme_name]
-    w = max(122, int(len(label) * 9.6) + 58)
-    cx = w // 2
-    return f"""<?xml version="1.0" encoding="UTF-8"?>
-<svg width="{w}" height="42" viewBox="0 0 {w} 42" fill="none" xmlns="http://www.w3.org/2000/svg">
-<defs>{gradient('pg', dur='7s')}</defs>
-<rect x="1.5" y="1.5" width="{w - 3}" height="39" rx="19.5" stroke="url(#pg)" stroke-width="1.5" opacity="0.85">
-<animate attributeName="opacity" values="0.6;1;0.6" dur="4s" repeatCount="indefinite"/>
-</rect>
-<circle cx="24" cy="21" r="2.4" fill="url(#pg)"/>
-<text x="{cx + 7}" y="25.5" text-anchor="middle" font-family="{MONO}" font-size="11.5" letter-spacing="2.6" fill="{t['muted']}">{label}</text>
 </svg>"""
 
 
@@ -203,5 +188,3 @@ if __name__ == "__main__":
     for theme in THEMES:
         write(f"hero-{theme}.svg", hero(theme))
         write(f"divider-{theme}.svg", divider(theme))
-        for label in ("PORTFOLIO", "LINKEDIN", "EMAIL"):
-            write(f"pill-{label.lower()}-{theme}.svg", pill(label, theme))
