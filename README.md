@@ -6,7 +6,7 @@
 </picture>
 
 <a href="https://github.com/Manasvi-247/Grudge">
-  <img align="right" width="400" src="https://grudge-p1gp.onrender.com/pet.svg" alt="grudge — my pixel pet">
+  <img align="right" width="400" src="https://grudge-eta.vercel.app/pet.svg" alt="grudge — my pixel pet">
 </a>
 
 <samp>
