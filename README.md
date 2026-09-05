@@ -11,7 +11,7 @@
 
 <samp>
 <!-- TODO: point portfolio at your site once it's live -->
-<b>portfolio</b>&nbsp; — &nbsp;<a href="https://github.com/Manasvi-247?tab=repositories">github.com/Manasvi-247</a><br>
+<b>portfolio</b>&nbsp; — &nbsp;<a href="https://minecraft-manasvi.vercel.app">minecraft-manasvi</a><br>
 <b>linkedin</b>&nbsp; — &nbsp;<a href="https://www.linkedin.com/in/manasvi-sabbarwal24">@manasvi-sabbarwal24</a><br>
 <b>email</b>&nbsp; — &nbsp;<a href="mailto:manasvi.sabbarwal@gmail.com">manasvi.sabbarwal@gmail.com</a>
 </samp>
